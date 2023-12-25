@@ -24,4 +24,15 @@ class ClientRepositoryTest {
     public void setClientConfiguration() {
         this.client = new Client(UUID.randomUUID(), "John", "Doe", new BigDecimal(20.00));
     }
+
+    @Test
+    @DisplayName("Should create a user successfully")
+    public void testSaveUserSuccess() {
+        Client saveClient = clientRepository.save(client);
+
+        Assertions.assertNotNull(saveClient.getId());
+        Assertions.assertEquals(client.getFirstName(), saveClient.getFirstName());
+        Assertions.assertEquals(client.getLastName(), saveClient.getLastName());
+        Assertions.assertEquals(client.getParticipation(), saveClient.getParticipation());
+    }
 }
