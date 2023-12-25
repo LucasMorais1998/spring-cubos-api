@@ -4,9 +4,9 @@ services:
   db:
     image: mysql:8.0.29
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_DATABASE}
-      MYSQL_DATABASE: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
