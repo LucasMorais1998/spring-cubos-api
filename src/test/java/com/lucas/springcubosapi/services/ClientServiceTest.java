@@ -15,6 +15,8 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -59,5 +61,18 @@ class ClientServiceTest {
         Assertions.assertEquals(clientSaved.getFirstName(), clientDTO.firstName());
         Assertions.assertEquals(clientSaved.getLastName(), clientDTO.lastName());
         Assertions.assertEquals(clientSaved.getParticipation(), clientDTO.participation());
+    }
+
+    @Test
+    @DisplayName("Should find all clients successfully")
+    public void testFindAllClientsSuccess() {
+        List<Client> clients = Arrays.asList(client);
+        when(clientRepository.findAll()).thenReturn(clients);
+
+        List<Client> allClients = clientService.listAll();
+
+        Assertions.assertFalse(allClients.isEmpty());
+        Assertions.assertEquals(allClients.size(), 1);
+        Assertions.assertEquals(allClients.get(0), client);
     }
 }
