@@ -17,5 +17,4 @@ public record ClientDTO(String firstName, String lastName, BigDecimal participat
     public BigDecimal participation() {
         return participation;
     }
-
 }
