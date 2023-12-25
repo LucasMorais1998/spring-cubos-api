@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @DataJpaTest
@@ -35,4 +36,16 @@ class ClientRepositoryTest {
         Assertions.assertEquals(client.getLastName(), saveClient.getLastName());
         Assertions.assertEquals(client.getParticipation(), saveClient.getParticipation());
     }
+
+    @Test
+    @DisplayName("Should find all users successfully")
+    public void testFindAllClientsSuccess() {
+        Client saveClient = clientRepository.save(client);
+
+        List<Client> allClients = clientRepository.findAll();
+
+        Assertions.assertFalse(allClients.isEmpty());
+        Assertions.assertTrue(allClients.contains(saveClient));
+    }
+
 }
