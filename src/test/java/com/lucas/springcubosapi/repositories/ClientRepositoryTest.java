@@ -29,23 +29,23 @@ class ClientRepositoryTest {
     @Test
     @DisplayName("Should create a user successfully")
     public void testSaveUserSuccess() {
-        Client saveClient = clientRepository.save(client);
+        Client savedClient = clientRepository.save(client);
 
-        Assertions.assertNotNull(saveClient.getId());
-        Assertions.assertEquals(client.getFirstName(), saveClient.getFirstName());
-        Assertions.assertEquals(client.getLastName(), saveClient.getLastName());
-        Assertions.assertEquals(client.getParticipation(), saveClient.getParticipation());
+        Assertions.assertNotNull(savedClient.getId());
+        Assertions.assertEquals(client.getFirstName(), savedClient.getFirstName());
+        Assertions.assertEquals(client.getLastName(), savedClient.getLastName());
+        Assertions.assertEquals(client.getParticipation(), savedClient.getParticipation());
     }
 
     @Test
     @DisplayName("Should find all users successfully")
     public void testFindAllClientsSuccess() {
-        Client saveClient = clientRepository.save(client);
+        Client savedClient = clientRepository.save(client);
 
         List<Client> allClients = clientRepository.findAll();
 
         Assertions.assertFalse(allClients.isEmpty());
-        Assertions.assertTrue(allClients.contains(saveClient));
+        Assertions.assertTrue(allClients.contains(savedClient));
     }
 
 }
