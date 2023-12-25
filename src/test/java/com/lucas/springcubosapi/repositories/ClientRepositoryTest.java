@@ -27,8 +27,8 @@ class ClientRepositoryTest {
     }
 
     @Test
-    @DisplayName("Should create a user successfully")
-    public void testSaveUserSuccess() {
+    @DisplayName("Should create a client successfully")
+    public void testCreateClientSuccess() {
         Client savedClient = clientRepository.save(client);
 
         Assertions.assertNotNull(savedClient.getId());
@@ -38,7 +38,7 @@ class ClientRepositoryTest {
     }
 
     @Test
-    @DisplayName("Should find all users successfully")
+    @DisplayName("Should find all clients successfully")
     public void testFindAllClientsSuccess() {
         Client savedClient = clientRepository.save(client);
 
